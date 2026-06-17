@@ -3,70 +3,169 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SDG 2 - Prevalence of Undernourishment</title>
+    <title>SDG 2.1.1 — Prevalence of Undernourishment</title>
+
+    <!-- Google Fonts (matches portfolio) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <style>
-        html, body { height: 100%; margin: 0; }
-        #map { width: 100%; height: 500px; }
-        .info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; }
-        .info h4 { margin: 0 0 5px; color: #777; }
-        .legend { text-align: left; line-height: 18px; color: #555; }
-        .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f7fa;
+            color: #1f2937;
+        }
+
+        .map-header {
+            padding: 1.2rem 1.6rem;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .map-header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.2rem;
+        }
+
+        .map-header p {
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        #map {
+            width: 100%;
+            height: calc(100vh - 70px);
+        }
+
+        /* Info panel */
+        .info {
+            padding: 10px 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            min-width: 170px;
+            line-height: 1.6;
+        }
+
+        .info h4 {
+            margin: 0 0 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6b7280;
+        }
+
+        .info b {
+            color: #1f2937;
+            font-size: 0.95rem;
+        }
+
+        /* Legend */
+        .legend {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            color: #374151;
+            line-height: 1.8;
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            padding: 10px 14px;
+        }
+
+        .legend-title {
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6b7280;
+            margin-bottom: 6px;
+        }
+
+        .legend i {
+            width: 14px;
+            height: 14px;
+            float: left;
+            margin-right: 8px;
+            margin-top: 3px;
+            border-radius: 3px;
+            opacity: 0.85;
+        }
     </style>
 </head>
 <body>
 
-<h2>
-    <b>SDG Goal 2:</b> End Hunger, Achieve Food Security and Improved Nutrition and Promote Sustainable Agriculture<br><br>
-    <b>SDG Indicator 2.1.1:</b> Prevalence of Undernourishment (%) — 2020
-</h2>
+<div class="map-header">
+    <h1>SDG Indicator 2.1.1 — Prevalence of Undernourishment (%)</h1>
+    <p>2020 · Source: UN SDG DataHub · Hover over a country to see its value</p>
+</div>
 
 <div id="map"></div>
 
 <script type="text/javascript" src="undernourish_map.js"></script>
 <script type="text/javascript">
 
-    const map = L.map('map').setView([10, 10], 2);
+    const map = L.map('map', { zoomControl: true }).setView([15, 15], 2);
 
-    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    // Clean light basemap (CartoDB Positron — no labels clutter)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
     }).addTo(map);
 
-    const info = L.control();
+    // Info control
+    const info = L.control({ position: 'topright' });
 
-    info.onAdd = function (map) {
+    info.onAdd = function () {
         this._div = L.DomUtil.create('div', 'info');
         this.update();
         return this._div;
     };
 
     info.update = function (props) {
-        const contents = props ? `<b>${props.iso3cd}</b><br />${props.prev_und61 !== null ? props.prev_und61 + '% undernourished' : 'No data'}` : 'Hover over a country';
-        this._div.innerHTML = `<h4>Prevalence of Undernourishment (%)</h4>${contents}`;
+        if (props) {
+            const val = props.prev_und61;
+            this._div.innerHTML = `
+                <h4>Undernourishment</h4>
+                <b>${props.iso3cd}</b><br>
+                ${val !== null && val !== undefined ? '<span style="color:#2563eb;font-weight:600">' + val + '%</span> of population' : '<span style="color:#9ca3af">No data</span>'}
+            `;
+        } else {
+            this._div.innerHTML = '<h4>Undernourishment</h4>Hover over a country';
+        }
     };
 
     info.addTo(map);
 
     function getColor(d) {
-        return d === null || d === undefined ? '#d3d3d3' :
+        return d === null || d === undefined ? '#e5e7eb' :
             d > 40 ? '#005a32' :
             d > 30 ? '#238b45' :
             d > 20 ? '#41ab5d' :
             d > 10 ? '#74c476' :
-            d > 0  ? '#c7e9c0' : '#d3d3d3';
+            d > 0  ? '#c7e9c0' : '#e5e7eb';
     }
 
     function style(feature) {
         return {
-            weight: 1,
+            weight: 0.5,
             opacity: 1,
-            color: '#999',
-            dashArray: '3',
-            fillOpacity: 0.7,
+            color: '#9ca3af',
+            fillOpacity: 0.75,
             fillColor: getColor(feature.properties.prev_und61)
         };
     }
@@ -74,10 +173,9 @@
     function highlightFeature(e) {
         const layer = e.target;
         layer.setStyle({
-            weight: 3,
-            color: '#333',
-            dashArray: '',
-            fillOpacity: 0.7
+            weight: 2,
+            color: '#2563eb',
+            fillOpacity: 0.9
         });
         layer.bringToFront();
         info.update(layer.feature.properties);
@@ -107,22 +205,20 @@
 
     map.attributionControl.addAttribution('SDG data &copy; <a href="https://unstats-undesa.opendata.arcgis.com/">UN SDG DataHub</a>');
 
-    const legend = L.control({position: 'bottomright'});
+    // Legend
+    const legend = L.control({ position: 'bottomright' });
 
-    legend.onAdd = function (map) {
-        const div = L.DomUtil.create('div', 'info legend');
+    legend.onAdd = function () {
+        const div = L.DomUtil.create('div', 'legend');
+        div.innerHTML = '<div class="legend-title">% Undernourished</div>';
         const grades = [0, 10, 20, 30, 40];
-        const labels = [];
-        let from, to;
-
         for (let i = 0; i < grades.length; i++) {
-            from = grades[i];
-            to = grades[i + 1];
-            labels.push(`<i style="background:${getColor(from + 1)}"></i> ${from}${to ? '&ndash;' + to : '+'}`);
+            const from = grades[i];
+            const to = grades[i + 1];
+            div.innerHTML +=
+                `<div><i style="background:${getColor(from + 1)}"></i>${from}${to ? '–' + to : '+'}</div>`;
         }
-
-        labels.push(`<i style="background:#d3d3d3"></i> No Data`);
-        div.innerHTML = labels.join('<br>');
+        div.innerHTML += `<div><i style="background:#e5e7eb"></i>No data</div>`;
         return div;
     };
 
