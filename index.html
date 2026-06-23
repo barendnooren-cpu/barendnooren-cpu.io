@@ -1,14 +1,14 @@
-< !DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Barend Nooren — GIS Portfolio</title>
- 
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
- 
+
   <style>
     :root {
       --bg:           #f0f4f8;
@@ -25,25 +25,25 @@
       --radius:       16px;
       --max:          1200px;
     }
- 
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
- 
+
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
     }
- 
+
     a { text-decoration: none; color: var(--accent); }
     img { max-width: 100%; display: block; }
- 
+
     .container {
       width: min(92%, var(--max));
       margin: auto;
     }
- 
+
     /* ── NAV ── */
     header {
       position: sticky;
@@ -52,75 +52,75 @@
       background: var(--primary);
       border-bottom: 1px solid rgba(255,255,255,0.1);
     }
- 
+
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 0;
     }
- 
+
     .logo {
       font-weight: 700;
       font-size: 1.1rem;
       color: #ffffff;
       letter-spacing: 0.02em;
     }
- 
+
     .logo span {
       color: #5bc4f5;
     }
- 
+
     .nav-links {
       display: flex;
       gap: 1.8rem;
     }
- 
+
     .nav-links a {
       color: rgba(255,255,255,0.75);
       font-size: 0.92rem;
       font-weight: 500;
       transition: color 0.2s;
     }
- 
+
     .nav-links a:hover { color: #fff; }
- 
+
     /* ── HERO ── */
     .hero {
       background: linear-gradient(135deg, var(--primary) 0%, #134e7a 100%);
       padding: 6rem 0 5rem;
       color: white;
     }
- 
+
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 4rem;
       align-items: center;
     }
- 
+
     .hero h1 {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(2rem, 5vw, 3.8rem);
       line-height: 1.15;
       margin-bottom: 1rem;
     }
- 
+
     .hero h1 span { color: #5bc4f5; }
- 
+
     .hero p {
       color: rgba(255,255,255,0.8);
       font-size: 1.1rem;
       max-width: 600px;
       margin-bottom: 2rem;
     }
- 
+
     .hero-buttons {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
     }
- 
+
     .btn {
       display: inline-block;
       padding: 0.85rem 1.6rem;
@@ -130,21 +130,21 @@
       transition: 0.2s ease;
       cursor: pointer;
     }
- 
+
     .btn-primary {
       background: #5bc4f5;
       color: var(--primary);
     }
- 
+
     .btn-primary:hover { background: #7dd3f8; }
- 
+
     .btn-outline {
       border: 2px solid rgba(255,255,255,0.4);
       color: white;
     }
- 
+
     .btn-outline:hover { border-color: white; }
- 
+
     /* Photo circle */
     .hero-photo {
       width: 220px;
@@ -158,30 +158,30 @@
       justify-content: center;
       flex-shrink: 0;
     }
- 
+
     .hero-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
- 
+
     .photo-placeholder {
       text-align: center;
       color: rgba(255,255,255,0.5);
       font-size: 0.8rem;
       padding: 1rem;
     }
- 
+
     .photo-placeholder svg {
       width: 60px;
       height: 60px;
       margin: 0 auto 0.5rem;
       opacity: 0.4;
     }
- 
+
     /* ── SECTIONS ── */
     section { padding: 5rem 0; }
- 
+
     .section-label {
       display: inline-block;
       padding: 0.3rem 1rem;
@@ -194,18 +194,18 @@
       letter-spacing: 0.08em;
       margin-bottom: 1rem;
     }
- 
+
     .section-title h2 {
       font-family: 'DM Serif Display', serif;
       font-size: 2rem;
       margin-bottom: 0.7rem;
     }
- 
+
     .section-title p {
       color: var(--muted);
       max-width: 680px;
     }
- 
+
     /* ── ABOUT ── */
     .about-grid {
       display: grid;
@@ -213,7 +213,7 @@
       gap: 3rem;
       align-items: start;
     }
- 
+
     .about-photo-box {
       background: var(--surface);
       border-radius: var(--radius);
@@ -225,26 +225,26 @@
       align-items: center;
       justify-content: center;
     }
- 
+
     .about-photo-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
- 
+
     .about-photo-placeholder {
       text-align: center;
       color: var(--muted);
       padding: 2rem;
     }
- 
+
     .about-photo-placeholder svg {
       width: 64px;
       height: 64px;
       margin: 0 auto 1rem;
       opacity: 0.3;
     }
- 
+
     .about-text {
       background: var(--surface);
       border-radius: var(--radius);
@@ -252,18 +252,18 @@
       box-shadow: var(--shadow);
       padding: 2.5rem;
     }
- 
+
     .about-text h3 {
       font-family: 'DM Serif Display', serif;
       font-size: 1.4rem;
       margin-bottom: 1rem;
     }
- 
+
     .about-text p {
       color: var(--muted);
       margin-bottom: 1rem;
     }
- 
+
     /* ── PROJECTS TABS ── */
     .projects-nav {
       display: flex;
@@ -273,7 +273,7 @@
       border-bottom: 2px solid var(--border);
       padding-bottom: 0;
     }
- 
+
     .proj-tab {
       padding: 0.7rem 1.3rem;
       border-radius: 8px 8px 0 0;
@@ -287,9 +287,9 @@
       transition: 0.15s;
       margin-bottom: -2px;
     }
- 
+
     .proj-tab:hover { color: var(--accent); }
- 
+
     .proj-tab.active {
       background: var(--surface);
       color: var(--primary);
@@ -297,10 +297,10 @@
       border-bottom: 2px solid var(--surface);
       font-weight: 600;
     }
- 
+
     .proj-panel { display: none; }
     .proj-panel.active { display: block; }
- 
+
     .proj-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -312,7 +312,7 @@
       box-shadow: var(--shadow);
       overflow: hidden;
     }
- 
+
     .proj-visual {
       background: var(--accent-light);
       min-height: 420px;
@@ -321,30 +321,30 @@
       justify-content: center;
       overflow: hidden;
     }
- 
+
     .proj-visual img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
- 
+
     .proj-visual iframe {
       width: 100%;
       height: 420px;
       border: none;
       display: block;
     }
- 
+
     .proj-visual-placeholder {
       text-align: center;
       color: var(--muted);
       padding: 3rem;
     }
- 
+
     .proj-info {
       padding: 2.5rem 2.5rem 2.5rem 0;
     }
- 
+
     .proj-tag {
       display: inline-block;
       padding: 0.25rem 0.8rem;
@@ -357,27 +357,27 @@
       letter-spacing: 0.06em;
       margin-bottom: 1rem;
     }
- 
+
     .proj-info h3 {
       font-family: 'DM Serif Display', serif;
       font-size: 1.4rem;
       margin-bottom: 0.5rem;
       line-height: 1.3;
     }
- 
+
     .proj-info .sdg-label {
       color: var(--accent);
       font-size: 0.88rem;
       font-weight: 600;
       margin-bottom: 1.2rem;
     }
- 
+
     .proj-info p {
       color: var(--muted);
       font-size: 0.95rem;
       margin-bottom: 1rem;
     }
- 
+
     .proj-meta {
       display: flex;
       flex-direction: column;
@@ -388,17 +388,17 @@
       border-radius: 10px;
       font-size: 0.88rem;
     }
- 
+
     .proj-meta span { color: var(--muted); }
     .proj-meta strong { color: var(--text); }
- 
+
     .proj-actions {
       display: flex;
       gap: 0.8rem;
       flex-wrap: wrap;
       margin-top: 1.5rem;
     }
- 
+
     .btn-map {
       background: var(--primary);
       color: white;
@@ -408,16 +408,16 @@
       font-size: 0.9rem;
       transition: 0.2s;
     }
- 
+
     .btn-map:hover { background: var(--accent); color: white; }
- 
+
     /* Overview grid (on Overview tab) */
     .overview-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.5rem;
     }
- 
+
     .overview-card {
       background: var(--surface);
       border-radius: var(--radius);
@@ -427,12 +427,12 @@
       cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
     }
- 
+
     .overview-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 40px rgba(0,0,0,0.12);
     }
- 
+
     .ov-thumb {
       height: 180px;
       background: linear-gradient(135deg, var(--accent-light), #eff6ff);
@@ -442,47 +442,47 @@
       overflow: hidden;
       border-bottom: 1px solid var(--border);
     }
- 
+
     .ov-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
- 
+
     .ov-thumb-placeholder {
       color: var(--muted);
       font-size: 0.9rem;
       font-weight: 500;
     }
- 
+
     .ov-body {
       padding: 1.2rem 1.4rem;
     }
- 
+
     .ov-body h4 {
       font-size: 1rem;
       font-weight: 600;
       margin-bottom: 0.4rem;
     }
- 
+
     .ov-body p {
       color: var(--muted);
       font-size: 0.88rem;
     }
- 
+
     /* ── SKILLS ── */
     #skills { background: var(--primary); }
     #skills .section-label { background: rgba(91,196,245,0.15); color: #5bc4f5; }
     #skills .section-title h2 { color: white; }
     #skills .section-title p { color: rgba(255,255,255,0.6); }
- 
+
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 1rem;
       margin-top: 2rem;
     }
- 
+
     .skill-card {
       background: rgba(255,255,255,0.07);
       border: 1px solid rgba(255,255,255,0.12);
@@ -490,27 +490,27 @@
       padding: 1.2rem 1.4rem;
       color: white;
     }
- 
+
     .skill-card .skill-name {
       font-weight: 600;
       font-size: 0.95rem;
       margin-bottom: 0.3rem;
     }
- 
+
     .skill-card .skill-type {
       font-size: 0.78rem;
       color: rgba(255,255,255,0.5);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
- 
+
     /* ── CONTACT ── */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
     }
- 
+
     .contact-card {
       background: var(--surface);
       border-radius: var(--radius);
@@ -518,19 +518,19 @@
       box-shadow: var(--shadow);
       padding: 2rem;
     }
- 
+
     .contact-card h3 {
       font-size: 1.1rem;
       margin-bottom: 1.2rem;
       color: var(--primary);
     }
- 
+
     .contact-item {
       display: flex;
       flex-direction: column;
       margin-bottom: 1rem;
     }
- 
+
     .contact-item label {
       font-size: 0.75rem;
       text-transform: uppercase;
@@ -538,14 +538,14 @@
       color: var(--muted);
       margin-bottom: 0.2rem;
     }
- 
+
     .contact-item a, .contact-item span {
       font-weight: 500;
       color: var(--text);
     }
- 
+
     .contact-item a:hover { color: var(--accent); }
- 
+
     /* ── FOOTER ── */
     footer {
       background: #060f1c;
@@ -554,7 +554,7 @@
       padding: 2.5rem 0;
       font-size: 0.9rem;
     }
- 
+
     /* ── MODAL ── */
     .modal-overlay {
       display: none;
@@ -565,9 +565,9 @@
       align-items: center;
       justify-content: center;
     }
- 
+
     .modal-overlay.open { display: flex; }
- 
+
     .modal-box {
       background: var(--surface);
       border-radius: var(--radius);
@@ -576,7 +576,7 @@
       overflow: auto;
       position: relative;
     }
- 
+
     .modal-close {
       position: absolute;
       top: 1rem;
@@ -594,13 +594,13 @@
       align-items: center;
       justify-content: center;
     }
- 
+
     .modal-box img {
       max-width: 90vw;
       max-height: 90vh;
       border-radius: var(--radius);
     }
- 
+
     .modal-box iframe {
       width: 90vw;
       height: 85vh;
@@ -608,7 +608,7 @@
       border-radius: var(--radius);
       display: block;
     }
- 
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; }
@@ -623,7 +623,7 @@
   </style>
 </head>
 <body>
- 
+
 <!-- ── HEADER ── -->
 <header>
   <div class="container">
@@ -638,7 +638,7 @@
     </nav>
   </div>
 </header>
- 
+
 <!-- ── HERO ── -->
 <section class="hero">
   <div class="container">
@@ -656,7 +656,7 @@
           <a href="#contact" class="btn btn-outline">Get in Touch</a>
         </div>
       </div>
- 
+
       <div class="hero-photo">
         <!-- REPLACE THIS: swap the placeholder below with <img src="your-photo.jpg" alt="Barend Nooren"> -->
         <div class="photo-placeholder">
@@ -670,7 +670,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ── ABOUT ── -->
 <section id="about">
   <div class="container">
@@ -679,7 +679,7 @@
       <h2>Who I am</h2>
     </div>
     <div class="about-grid">
- 
+
       <div class="about-photo-box">
         <!-- REPLACE THIS: swap the placeholder below with <img src="your-photo.jpg" alt="Barend Nooren"> -->
         <div class="about-photo-placeholder">
@@ -690,7 +690,7 @@
           <p style="font-size:0.85rem;">Upload your photo to GitHub and replace this placeholder</p>
         </div>
       </div>
- 
+
       <div class="about-text">
         <h3>Barend Nooren</h3>
         <p>
@@ -714,11 +714,11 @@
           <span style="background:var(--green-light);color:var(--green);padding:0.4rem 1rem;border-radius:999px;font-size:0.85rem;font-weight:500;">GIS & Sustainability</span>
         </div>
       </div>
- 
+
     </div>
   </div>
 </section>
- 
+
 <!-- ── PROJECTS ── -->
 <section id="projects" style="background:var(--bg);">
   <div class="container">
@@ -727,22 +727,22 @@
       <h2>Projects</h2>
       <p>A selection of GIS and spatial analysis work. Click a project to explore it.</p>
     </div>
- 
+
     <!-- Tab navigation -->
     <div class="projects-nav">
       <button class="proj-tab active" onclick="switchTab('overview')">Overview</button>
       <button class="proj-tab" onclick="switchTab('p1')">Project 1 — Undernourishment</button>
       <button class="proj-tab" onclick="switchTab('p2')">Project 2 — School Access</button>
-      <button class="proj-tab" onclick="switchTab('p3')">Project 3</button>
+      <button class="proj-tab" onclick="switchTab('p3')">Project 3 — Flood Risk</button>
       <button class="proj-tab" onclick="switchTab('p4')">Project 4</button>
       <button class="proj-tab" onclick="switchTab('p5')">Project 5</button>
       <button class="proj-tab" onclick="switchTab('p6')">Project 6</button>
     </div>
- 
+
     <!-- OVERVIEW TAB -->
     <div id="tab-overview" class="proj-panel active">
       <div class="overview-grid">
- 
+
         <div class="overview-card" onclick="switchTab('p1')">
           <div class="ov-thumb">
             <div class="ov-thumb-placeholder">🗺️ Interactive Map</div>
@@ -752,7 +752,7 @@
             <p>Global choropleth map · Leaflet.js · 2020 UN data</p>
           </div>
         </div>
- 
+
         <div class="overview-card" onclick="switchTab('p2')">
           <div class="ov-thumb">
             <img src="kindergarden_map_final.png" alt="School accessibility map" onerror="this.style.display='none'">
@@ -763,30 +763,35 @@
             <p>Isochrone analysis · Utrecht · ORS Tools</p>
           </div>
         </div>
- 
+
         <div class="overview-card" onclick="switchTab('p3')">
-          <div class="ov-thumb"><div class="ov-thumb-placeholder">Add Project 3</div></div>
-          <div class="ov-body"><h4>Project 3</h4><p>Coming soon</p></div>
+          <div class="ov-thumb">
+            <img src="map_flood_final.png" alt="Urban flood risk map The Hague">
+          </div>
+          <div class="ov-body">
+            <h4>SDG 11 — Urban Flood Risk</h4>
+            <p>DEM analysis · The Hague · AHN LiDAR</p>
+          </div>
         </div>
- 
+
         <div class="overview-card" onclick="switchTab('p4')">
           <div class="ov-thumb"><div class="ov-thumb-placeholder">Add Project 4</div></div>
           <div class="ov-body"><h4>Project 4</h4><p>Coming soon</p></div>
         </div>
- 
+
         <div class="overview-card" onclick="switchTab('p5')">
           <div class="ov-thumb"><div class="ov-thumb-placeholder">Add Project 5</div></div>
           <div class="ov-body"><h4>Project 5</h4><p>Coming soon</p></div>
         </div>
- 
+
         <div class="overview-card" onclick="switchTab('p6')">
           <div class="ov-thumb"><div class="ov-thumb-placeholder">Add Project 6</div></div>
           <div class="ov-body"><h4>Project 6</h4><p>Coming soon</p></div>
         </div>
- 
+
       </div>
     </div>
- 
+
     <!-- PROJECT 1 -->
     <div id="tab-p1" class="proj-panel">
       <div class="proj-layout">
@@ -816,7 +821,7 @@
         </div>
       </div>
     </div>
- 
+
     <!-- PROJECT 2 -->
     <div id="tab-p2" class="proj-panel">
       <div class="proj-layout">
@@ -848,23 +853,47 @@
         </div>
       </div>
     </div>
- 
+
     <!-- PROJECT 3 -->
     <div id="tab-p3" class="proj-panel">
       <div class="proj-layout">
         <div class="proj-visual">
-          <div class="proj-visual-placeholder">
-            <p style="color:var(--muted);">Add your map image here</p>
-          </div>
+          <img src="map_flood_final.png" alt="Urban flood risk analysis The Hague"
+               style="cursor:zoom-in;" onclick="openModal('img','map_flood_final.png')">
         </div>
         <div class="proj-info">
-          <div class="proj-tag">Coming Soon</div>
-          <h3>Project 3 Title</h3>
-          <p>Replace this with your project description.</p>
+          <div class="proj-tag">Raster Analysis</div>
+          <h3>Urban Flood Risk Analysis — The Hague</h3>
+          <div class="sdg-label">🎯 SDG Goal 11 — Sustainable Cities and Communities · Target 11.5</div>
+          <p>
+            This project analyses urban flood risk in The Hague using high-resolution
+            LiDAR elevation data from the AHN (Actueel Hoogtebestand Nederland). A Digital
+            Terrain Model (DTM) was used to identify low-lying areas most vulnerable to
+            inundation under a 1-metre flood scenario.
+          </p>
+          <p>
+            Buildings were extruded by height using Zonal Statistics, revealing the 3D
+            urban fabric in relation to flood exposure. The analysis highlights coastal
+            and city-centre neighbourhoods where ground elevation falls below or near
+            sea level — a critical issue for a low-lying Dutch city.
+          </p>
+          <p>
+            This work connects directly to SDG 11.5, which aims to reduce the impact of
+            disasters including flooding on urban communities by 2030.
+          </p>
+          <div class="proj-meta">
+            <div><label>Data source</label><strong>AHN (Actueel Hoogtebestand Nederland)</strong></div>
+            <div><label>Tools used</label><strong>QGIS, Raster Calculator, Zonal Statistics</strong></div>
+            <div><label>Study area</label><strong>The Hague, Netherlands</strong></div>
+            <div><label>Flood scenario</label><strong>1 metre above ground level</strong></div>
+          </div>
+          <div class="proj-actions">
+            <button class="btn btn-map" onclick="openModal('img','map_flood_final.png')">View Full Map ↗</button>
+          </div>
         </div>
       </div>
     </div>
- 
+
     <!-- PROJECT 4 -->
     <div id="tab-p4" class="proj-panel">
       <div class="proj-layout">
@@ -872,7 +901,7 @@
         <div class="proj-info"><div class="proj-tag">Coming Soon</div><h3>Project 4 Title</h3><p>Replace this with your project description.</p></div>
       </div>
     </div>
- 
+
     <!-- PROJECT 5 -->
     <div id="tab-p5" class="proj-panel">
       <div class="proj-layout">
@@ -880,7 +909,7 @@
         <div class="proj-info"><div class="proj-tag">Coming Soon</div><h3>Project 5 Title</h3><p>Replace this with your project description.</p></div>
       </div>
     </div>
- 
+
     <!-- PROJECT 6 -->
     <div id="tab-p6" class="proj-panel">
       <div class="proj-layout">
@@ -888,10 +917,10 @@
         <div class="proj-info"><div class="proj-tag">Coming Soon</div><h3>Project 6 Title</h3><p>Replace this with your project description.</p></div>
       </div>
     </div>
- 
+
   </div>
 </section>
- 
+
 <!-- ── SKILLS ── -->
 <section id="skills">
   <div class="container">
@@ -914,7 +943,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ── CONTACT ── -->
 <section id="contact">
   <div class="container">
@@ -938,14 +967,14 @@
     </div>
   </div>
 </section>
- 
+
 <!-- ── FOOTER ── -->
 <footer>
   <div class="container">
     © 2026 Barend Nooren · Utrecht University
   </div>
 </footer>
- 
+
 <!-- ── MODAL ── -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal-box" id="modal-box">
@@ -953,7 +982,7 @@
     <div id="modal-content"></div>
   </div>
 </div>
- 
+
 <script>
   // Tab switching
   function switchTab(id) {
@@ -965,7 +994,7 @@
     tabs[map[id]].classList.add('active');
     document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
   }
- 
+
   // Modal
   function openModal(type, src) {
     const content = document.getElementById('modal-content');
@@ -976,16 +1005,16 @@
     }
     document.getElementById('modal').classList.add('open');
   }
- 
+
   function closeModal(e) {
     if (!e || e.target === document.getElementById('modal')) {
       document.getElementById('modal').classList.remove('open');
       document.getElementById('modal-content').innerHTML = '';
     }
   }
- 
+
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 </script>
- 
+
 </body>
 </html>
