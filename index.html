@@ -734,7 +734,7 @@
       <button class="proj-tab" onclick="switchTab('p1')">Project 1 — Undernourishment</button>
       <button class="proj-tab" onclick="switchTab('p2')">Project 2 — School Access</button>
       <button class="proj-tab" onclick="switchTab('p3')">Project 3 — Flood Risk</button>
-      <button class="proj-tab" onclick="switchTab('p4')">Project 4</button>
+      <button class="proj-tab" onclick="switchTab('p4')">Project 4 — Vegetation Change</button>
       <button class="proj-tab" onclick="switchTab('p5')">Project 5</button>
       <button class="proj-tab" onclick="switchTab('p6')">Project 6</button>
     </div>
@@ -775,8 +775,13 @@
         </div>
 
         <div class="overview-card" onclick="switchTab('p4')">
-          <div class="ov-thumb"><div class="ov-thumb-placeholder">Add Project 4</div></div>
-          <div class="ov-body"><h4>Project 4</h4><p>Coming soon</p></div>
+          <div class="ov-thumb">
+            <img src="ndvi_change.png" alt="NDVI vegetation change map Singapore">
+          </div>
+          <div class="ov-body">
+            <h4>SDG 15 — Vegetation Change</h4>
+            <p>Sentinel-2 NDVI · Singapore & Johor · 2017–2024</p>
+          </div>
         </div>
 
         <div class="overview-card" onclick="switchTab('p5')">
@@ -896,10 +901,111 @@
 
     <!-- PROJECT 4 -->
     <div id="tab-p4" class="proj-panel">
-      <div class="proj-layout">
-        <div class="proj-visual"><div class="proj-visual-placeholder"><p style="color:var(--muted);">Add your map image here</p></div></div>
-        <div class="proj-info"><div class="proj-tag">Coming Soon</div><h3>Project 4 Title</h3><p>Replace this with your project description.</p></div>
+
+      <!-- Header card -->
+      <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);padding:2.5rem;margin-bottom:2rem;">
+        <div class="proj-tag">Remote Sensing</div>
+        <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:0.5rem 0;">Vegetation Change Monitoring — Singapore & Johor Bahru</h3>
+        <div class="sdg-label" style="color:var(--accent);font-size:0.9rem;font-weight:600;margin-bottom:1.2rem;">🎯 SDG Goal 15 — Life on Land · Monitoring Terrestrial Ecosystem Change</div>
+        <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:0.8rem;">
+          This project uses multispectral satellite imagery from Sentinel-2 to monitor vegetation change between 2017 and 2024 across Singapore and the southern Malaysian state of Johor Bahru — an area that juxtaposes a densely urbanised city-state with a rapidly developing region where natural forests are giving way to oil palm plantations and urban expansion.
+        </p>
+        <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:1.5rem;">
+          NDVI (Normalized Difference Vegetation Index) composites were generated in Google Earth Engine using full-year median Sentinel-2 imagery to eliminate cloud cover. NDVI was then calculated in QGIS using the formula <strong>(NIR − Red) / (NIR + Red)</strong>, where high values indicate dense healthy vegetation and negative values indicate water or bare surfaces.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;">
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
+            <div style="color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Data source</div>
+            <strong>Copernicus / Sentinel-2 (ESA) via Google Earth Engine</strong>
+          </div>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
+            <div style="color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Tools used</div>
+            <strong>Google Earth Engine, QGIS, Raster Calculator</strong>
+          </div>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
+            <div style="color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Study period</div>
+            <strong>2017 vs 2024 (full-year medians)</strong>
+          </div>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
+            <div style="color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Study area</div>
+            <strong>Singapore & Johor Bahru, Malaysia</strong>
+          </div>
+        </div>
       </div>
+
+      <!-- Map 1 + Map 2: True Colour side by side -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
+
+        <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;">
+          <img src="singapore_2017.png" alt="True colour composite 2017 Singapore"
+               style="width:100%;height:240px;object-fit:cover;cursor:zoom-in;display:block;"
+               onclick="openModal('img','singapore_2017.png')">
+          <div style="padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 1</div>
+            <h4 style="font-size:1rem;font-weight:700;margin-bottom:0.6rem;">True Colour Composite — 2017</h4>
+            <p style="color:var(--muted);font-size:0.88rem;">Singapore's compact urban footprint is visible surrounded by water, with vegetated areas in the central nature reserve. Across the Johor Strait, Johor Bahru's urban core gives way to a mosaic of oil palm, secondary forest, and agricultural land. Construction sites appear as pale grey-beige patches.</p>
+            <button onclick="openModal('img','singapore_2017.png')" style="margin-top:1rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
+          </div>
+        </div>
+
+        <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;">
+          <img src="ndvi_2024_coloured.png" alt="True colour composite 2024 Singapore"
+               style="width:100%;height:240px;object-fit:cover;cursor:zoom-in;display:block;"
+               onclick="openModal('img','ndvi_2024_coloured.png')">
+          <div style="padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 2</div>
+            <h4 style="font-size:1rem;font-weight:700;margin-bottom:0.6rem;">True Colour Composite — 2024</h4>
+            <p style="color:var(--muted);font-size:0.88rem;">By 2024, notable expansion is visible in Johor, particularly around the Iskandar Malaysia economic corridor. New infrastructure and housing have replaced vegetation visible in 2017. Land reclamation on Singapore's southern coast is visible. The contrast between urban Singapore and transitional Johor is more pronounced.</p>
+            <button onclick="openModal('img','ndvi_2024_coloured.png')" style="margin-top:1rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Map 3 + Map 4: NDVI side by side -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
+
+        <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;">
+          <img src="nvdi_2017_coloured.png" alt="NDVI 2017 Singapore"
+               style="width:100%;height:240px;object-fit:cover;cursor:zoom-in;display:block;"
+               onclick="openModal('img','nvdi_2017_coloured.png')">
+          <div style="padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 3</div>
+            <h4 style="font-size:1rem;font-weight:700;margin-bottom:0.6rem;">NDVI — 2017</h4>
+            <p style="color:var(--muted);font-size:0.88rem;">High vegetation density (NDVI &gt; 0.4) across much of Johor's interior. Singapore's central nature reserve stands out as an isolated high-NDVI patch within an urban surface. The Johor Strait shows negative NDVI values (water), and urban surfaces throughout both areas show near-zero values.</p>
+            <button onclick="openModal('img','nvdi_2017_coloured.png')" style="margin-top:1rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
+          </div>
+        </div>
+
+        <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;">
+          <img src="ndvi_2024_indication.png" alt="NDVI 2024 Singapore"
+               style="width:100%;height:240px;object-fit:cover;cursor:zoom-in;display:block;"
+               onclick="openModal('img','ndvi_2024_indication.png')">
+          <div style="padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 4</div>
+            <h4 style="font-size:1rem;font-weight:700;margin-bottom:0.6rem;">NDVI — 2024</h4>
+            <p style="color:var(--muted);font-size:0.88rem;">A broadly similar pattern to 2017, but with notable shifts. Some Johor areas show lower NDVI consistent with conversion to built-up land. Others show higher values — likely reflecting maturation of oil palm replanted after 2015. Singapore's vegetation patches remain relatively stable.</p>
+            <button onclick="openModal('img','ndvi_2024_indication.png')" style="margin-top:1rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Map 5: NDVI Change — full width -->
+      <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:1.2fr 1fr;">
+        <img src="ndvi_change.png" alt="NDVI change 2017-2024 Singapore"
+             style="width:100%;height:100%;min-height:300px;object-fit:cover;cursor:zoom-in;display:block;"
+             onclick="openModal('img','ndvi_change.png')">
+        <div style="padding:2rem;">
+          <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 5</div>
+          <h4 style="font-size:1.1rem;font-weight:700;margin-bottom:0.6rem;">NDVI Change — 2017 → 2024</h4>
+          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">The change map (2024 NDVI minus 2017 NDVI) reveals where vegetation increased (green) and decreased (red/orange) over seven years. Red patches around Johor Bahru's urban fringe indicate active deforestation and land conversion.</p>
+          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">Green areas in Johor's interior largely reflect oil palm plantation regrowth — not natural forest recovery. Singapore's protected nature areas remain stable, while development frontiers show slight negative change.</p>
+          <p style="color:var(--muted);font-size:0.88rem;">This map illustrates the complex relationship between vegetation density and land use: not all green gain is ecologically positive, and not all red loss is permanent.</p>
+          <button onclick="openModal('img','ndvi_change.png')" style="margin-top:1.2rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
+        </div>
+      </div>
+
     </div>
 
     <!-- PROJECT 5 -->
