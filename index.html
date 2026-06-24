@@ -735,7 +735,7 @@
       <button class="proj-tab" onclick="switchTab('p2')">Project 2 — School Access</button>
       <button class="proj-tab" onclick="switchTab('p3')">Project 3 — Flood Risk</button>
       <button class="proj-tab" onclick="switchTab('p4')">Project 4 — Vegetation Change</button>
-      <button class="proj-tab" onclick="switchTab('p5')">Project 5</button>
+      <button class="proj-tab" onclick="switchTab('p5')">Project 5 — Land Cover</button>
       <button class="proj-tab" onclick="switchTab('p6')">Project 6</button>
     </div>
 
@@ -785,8 +785,14 @@
         </div>
 
         <div class="overview-card" onclick="switchTab('p5')">
-          <div class="ov-thumb"><div class="ov-thumb-placeholder">Add Project 5</div></div>
-          <div class="ov-body"><h4>Project 5</h4><p>Coming soon</p></div>
+          <div class="ov-thumb">
+            <img src="lulc_supervised.png" alt="Land cover classification Utrecht" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="ov-thumb-placeholder" style="display:none">🗺️ Classification Map</div>
+          </div>
+          <div class="ov-body">
+            <h4>SDG 15 — Land Cover Classification</h4>
+            <p>Sentinel-2 · Utrecht · ArcGIS Pro · SVM Classifier</p>
+          </div>
         </div>
 
         <div class="overview-card" onclick="switchTab('p6')">
@@ -1010,10 +1016,130 @@
 
     <!-- PROJECT 5 -->
     <div id="tab-p5" class="proj-panel">
-      <div class="proj-layout">
-        <div class="proj-visual"><div class="proj-visual-placeholder"><p style="color:var(--muted);">Add your map image here</p></div></div>
-        <div class="proj-info"><div class="proj-tag">Coming Soon</div><h3>Project 5 Title</h3><p>Replace this with your project description.</p></div>
+
+      <!-- Header -->
+      <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);padding:2.5rem;margin-bottom:2rem;">
+        <div class="proj-tag">Image Classification</div>
+        <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:0.5rem 0;">Land Use / Land Cover Classification — Utrecht</h3>
+        <div class="sdg-label" style="color:var(--accent);font-size:0.9rem;font-weight:600;margin-bottom:1.2rem;">🎯 SDG Goal 15 — Life on Land · Monitoring Terrestrial Ecosystems</div>
+        <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:0.8rem;">
+          Land cover classification maps what covers the Earth's surface — forests, water, urban areas and agricultural fields — using satellite imagery. This project applies three classification approaches to a Sentinel-2 composite of Utrecht, comparing unsupervised and supervised methods to assess their accuracy and suitability for land cover monitoring.
+        </p>
+        <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:1.5rem;">
+          The imagery was processed in ArcGIS Pro using the Image Classification Wizard. Each pixel represents approximately 18 × 18 metres. A Support Vector Machine (SVM) supervised classifier — trained on manually drawn samples for five land cover classes — achieved a cross-validation accuracy of <strong>99.53%</strong>, significantly outperforming both unsupervised methods.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;">
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
+            <div style="color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Data source</div>
+            <strong>Sentinel-2 (ESA Copernicus) · May/June 2026</strong>
+          </div>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
+            <div style="color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Tools used</div>
+            <strong>ArcGIS Pro · Image Classification Wizard · SVM</strong>
+          </div>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
+            <div style="color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Classes mapped</div>
+            <strong>Water · Developed · Barren · Forest · Planted/Cultivated</strong>
+          </div>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
+            <div style="color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Best accuracy</div>
+            <strong>99.53% (SVM cross-validation)</strong>
+          </div>
+        </div>
       </div>
+
+      <!-- Row 1: True colour + NDVI -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
+
+        <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;">
+          <img src="lulc_truecolour.png" alt="True colour composite Utrecht Sentinel-2"
+               style="width:100%;height:220px;object-fit:cover;cursor:zoom-in;display:block;"
+               onclick="openModal('img','lulc_truecolour.png')">
+          <div style="padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 1</div>
+            <h4 style="font-size:1rem;font-weight:700;margin-bottom:0.6rem;">True Colour Composite — Sentinel-2</h4>
+            <p style="color:var(--muted);font-size:0.88rem;">Natural colour Sentinel-2 image (bands B4/B3/B2) of the Utrecht study area. Clearly shows the urban core, agricultural fields, and vegetated areas. Forms the base imagery for all three classification methods.</p>
+            <button onclick="openModal('img','lulc_truecolour.png')" style="margin-top:1rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
+          </div>
+        </div>
+
+        <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;">
+          <img src="lulc_ndvi.png" alt="NDVI map Utrecht"
+               style="width:100%;height:220px;object-fit:cover;cursor:zoom-in;display:block;"
+               onclick="openModal('img','lulc_ndvi.png')">
+          <div style="padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 2</div>
+            <h4 style="font-size:1rem;font-weight:700;margin-bottom:0.6rem;">NDVI — Vegetation Health Index</h4>
+            <p style="color:var(--muted);font-size:0.88rem;">Red-to-green colour ramp: green indicates healthy dense vegetation, red indicates bare soil or urban surfaces. Agricultural fields and parks are clearly distinguishable from the built-up city centre. Ground truth validation points are overlaid in red.</p>
+            <button onclick="openModal('img','lulc_ndvi.png')" style="margin-top:1rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Row 2: Unsupervised pixel + object -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem;">
+
+        <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;">
+          <img src="lulc_unsupervised_pixel.png" alt="Unsupervised pixel classification Utrecht"
+               style="width:100%;height:220px;object-fit:cover;cursor:zoom-in;display:block;"
+               onclick="openModal('img','lulc_unsupervised_pixel.png')">
+          <div style="padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 3</div>
+            <h4 style="font-size:1rem;font-weight:700;margin-bottom:0.6rem;">Unsupervised Pixel-Based Classification</h4>
+            <p style="color:var(--muted);font-size:0.88rem;">ISO Cluster algorithm groups pixels into 4 classes by spectral similarity alone — no training data required. Vegetation, urban areas and water are distinguishable, but the results are coarse and some land cover types that should be separate are merged into one class.</p>
+            <button onclick="openModal('img','lulc_unsupervised_pixel.png')" style="margin-top:1rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
+          </div>
+        </div>
+
+        <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;">
+          <img src="lulc_unsupervised_object.png" alt="Unsupervised object classification Utrecht"
+               style="width:100%;height:220px;object-fit:cover;cursor:zoom-in;display:block;"
+               onclick="openModal('img','lulc_unsupervised_object.png')">
+          <div style="padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 4</div>
+            <h4 style="font-size:1rem;font-weight:700;margin-bottom:0.6rem;">Unsupervised Object-Based Classification</h4>
+            <p style="color:var(--muted);font-size:0.88rem;">Groups neighbouring pixels into objects before classification, producing smoother and more natural-looking results. Fields and urban blocks are more accurately delineated compared to pixel-based classification, though manual interpretation of class labels is still required afterwards.</p>
+            <button onclick="openModal('img','lulc_unsupervised_object.png')" style="margin-top:1rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Row 3: Supervised full width -->
+      <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:1.2fr 1fr;margin-bottom:1.5rem;">
+        <img src="lulc_supervised.png" alt="Supervised SVM land cover classification Utrecht"
+             style="width:100%;height:100%;min-height:300px;object-fit:cover;cursor:zoom-in;display:block;"
+             onclick="openModal('img','lulc_supervised.png')">
+        <div style="padding:2rem;">
+          <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 5 · Best Result</div>
+          <h4 style="font-size:1.1rem;font-weight:700;margin-bottom:0.6rem;">Supervised Pixel-Based Classification (SVM)</h4>
+          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">Using training samples manually drawn for five classes — Water, Developed, Barren, Forest, and Planted/Cultivated — the Support Vector Machine classifier produced the most detailed and accurate result. Cross-validation accuracy: <strong>99.53%</strong>.</p>
+          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">The SVM successfully separated vegetation subtypes that both unsupervised methods merged into one class. Some urban pixels were occasionally misclassified as Barren due to similar spectral signatures — a known limitation when surface materials share reflectance properties.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin:1rem 0;">
+            <span style="background:#dbeafe;color:#1d4ed8;padding:0.3rem 0.8rem;border-radius:999px;font-size:0.78rem;font-weight:600;">💧 Water</span>
+            <span style="background:#f1f5f9;color:#475569;padding:0.3rem 0.8rem;border-radius:999px;font-size:0.78rem;font-weight:600;">🏙️ Developed</span>
+            <span style="background:#fef3c7;color:#92400e;padding:0.3rem 0.8rem;border-radius:999px;font-size:0.78rem;font-weight:600;">🟤 Barren</span>
+            <span style="background:#d1fae5;color:#065f46;padding:0.3rem 0.8rem;border-radius:999px;font-size:0.78rem;font-weight:600;">🌲 Forest</span>
+            <span style="background:#ecfccb;color:#365314;padding:0.3rem 0.8rem;border-radius:999px;font-size:0.78rem;font-weight:600;">🌾 Planted/Cultivated</span>
+          </div>
+          <button onclick="openModal('img','lulc_supervised.png')" style="background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
+        </div>
+      </div>
+
+      <!-- Spectral profile -->
+      <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;display:grid;grid-template-columns:1fr 1fr;">
+        <img src="lulc_spectral.png" alt="Spectral profile chart"
+             style="width:100%;height:100%;min-height:240px;object-fit:contain;cursor:zoom-in;display:block;padding:1rem;"
+             onclick="openModal('img','lulc_spectral.png')">
+        <div style="padding:2rem;">
+          <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Chart</div>
+          <h4 style="font-size:1.1rem;font-weight:700;margin-bottom:0.6rem;">Spectral Profile — Training Samples</h4>
+          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">The spectral profile shows how each land cover type reflects light across Sentinel-2's 12 bands. These characteristic "spectral signatures" are what enable classification algorithms to distinguish between land cover types.</p>
+          <p style="color:var(--muted);font-size:0.88rem;">Vegetation shows a distinctive NIR peak (B8), while water has uniformly low reflectance and urban surfaces show a flat, moderate response. The separation between these signatures is what makes SVM classification so effective.</p>
+        </div>
+      </div>
+
     </div>
 
     <!-- PROJECT 6 -->
