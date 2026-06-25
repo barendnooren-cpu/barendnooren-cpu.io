@@ -645,7 +645,7 @@
     <div class="hero-grid">
       <div>
         <div class="section-label" style="background:rgba(91,196,245,0.15);color:#5bc4f5;">GIS & Cartography Portfolio</div>
-        <h1>Mapping the world,<br><span>one layer at a time</span></h1>
+        <h1>Mapping the World<br><span>through GIS</span></h1>
         <p>
           I'm a GIS and sustainability student at Utrecht University,
           using geospatial technologies to explore environmental and
@@ -680,13 +680,16 @@
       <div class="about-text">
         <h3>Barend Nooren</h3>
         <p>
-          I am student at Utrecht University College, majoring in Geography and Environmental Science. Geographical Information Systems directly relates to my field of study,
-          due to the vital role cartography and spatial data plays in solving both social and scientfici environmental issues. I am specifically interested in the confluence of the two,
-          how environmental questions are shaped by social relations and inequalities. 
-          
+          I am a GIS and sustainability student at Utrecht University,
+          interested in cartography, spatial data science, and using
+          geospatial technologies to better understand environmental
+          and social challenges.
         </p>
         <p>
-          In the GIS Lab Course, I aim to gain technical skills in cartography and coding, which will help me better represent and investigate such questions.
+          My work focuses on applying GIS methods to real-world questions —
+          from mapping global undernourishment patterns aligned with UN SDG
+          indicators, to analysing local school accessibility in Utrecht using
+          OpenStreetMap data and routing algorithms.
         </p>
         <p>
           I enjoy working at the intersection of data, design, and geography —
@@ -714,12 +717,12 @@
     <!-- Tab navigation -->
     <div class="projects-nav">
       <button class="proj-tab active" onclick="switchTab('overview')">Overview</button>
-      <button class="proj-tab" onclick="switchTab('p1')">Project 1 — Undernourishment</button>
-      <button class="proj-tab" onclick="switchTab('p2')">Project 2 — School Access</button>
-      <button class="proj-tab" onclick="switchTab('p3')">Project 3 — Flood Risk</button>
-      <button class="proj-tab" onclick="switchTab('p4')">Project 4 — Vegetation Change</button>
-      <button class="proj-tab" onclick="switchTab('p5')">Project 5 — Land Cover</button>
-      <button class="proj-tab" onclick="switchTab('p6')">Project 6</button>
+      <button class="proj-tab" onclick="switchTab('gis')">What is GIS?</button>
+      <button class="proj-tab" onclick="switchTab('p1')">Choropleth Map</button>
+      <button class="proj-tab" onclick="switchTab('p2')">Isochrone Map</button>
+      <button class="proj-tab" onclick="switchTab('p3')">Flood Risk Map</button>
+      <button class="proj-tab" onclick="switchTab('p4')">Vegetation Change</button>
+      <button class="proj-tab" onclick="switchTab('p5')">Land Cover</button>
     </div>
 
     <!-- OVERVIEW TAB -->
@@ -728,7 +731,8 @@
 
         <div class="overview-card" onclick="switchTab('p1')">
           <div class="ov-thumb">
-            <div class="ov-thumb-placeholder">🗺️ Interactive Map</div>
+            <img src="map_screenshot.png" alt="Choropleth map undernourishment" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="ov-thumb-placeholder" style="display:none">🗺️ Choropleth Map</div>
           </div>
           <div class="ov-body">
             <h4>SDG 2.1.1 — Undernourishment</h4>
@@ -778,9 +782,77 @@
           </div>
         </div>
 
-        <div class="overview-card" onclick="switchTab('p6')">
-          <div class="ov-thumb"><div class="ov-thumb-placeholder">Add Project 6</div></div>
-          <div class="ov-body"><h4>Project 6</h4><p>Coming soon</p></div>
+
+      </div>
+    </div>
+
+    <!-- WHAT IS GIS? -->
+    <div id="tab-gis" class="proj-panel">
+      <div style="max-width:860px;margin:0 auto;">
+
+        <!-- Header -->
+        <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);padding:2.5rem;margin-bottom:2rem;">
+          <div class="proj-tag">Explainer</div>
+          <h3 style="font-family:'DM Serif Display',serif;font-size:1.8rem;margin:0.5rem 0 1rem;">What is GIS?</h3>
+          <p style="color:var(--muted);font-size:1rem;line-height:1.8;">
+            Geographic Information Systems — GIS for short — are tools for capturing, storing, analysing, and visualising data that is tied to a location on Earth. Anything that can be mapped can be studied with GIS: land use, population density, river networks, school locations, crop health, flood risk, and far more.
+          </p>
+        </div>
+
+        <!-- Core concepts grid -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin-bottom:2rem;">
+
+          <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:1.6rem;">
+            <div style="font-size:2rem;margin-bottom:0.7rem;">🌍</div>
+            <h4 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Spatial Data</h4>
+            <p style="color:var(--muted);font-size:0.9rem;line-height:1.7;">Every feature in a GIS has a location — expressed as coordinates (latitude/longitude) or a projected coordinate system. This spatial dimension is what separates GIS from a regular spreadsheet or database.</p>
+          </div>
+
+          <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:1.6rem;">
+            <div style="font-size:2rem;margin-bottom:0.7rem;">📐</div>
+            <h4 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Vector vs. Raster</h4>
+            <p style="color:var(--muted);font-size:0.9rem;line-height:1.7;">GIS data comes in two main forms. <strong>Vector</strong> data uses points, lines, and polygons to represent discrete features like roads or buildings. <strong>Raster</strong> data divides the world into a regular grid of pixels — ideal for continuous phenomena like elevation or temperature.</p>
+          </div>
+
+          <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:1.6rem;">
+            <div style="font-size:2rem;margin-bottom:0.7rem;">🗂️</div>
+            <h4 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Layers</h4>
+            <p style="color:var(--muted);font-size:0.9rem;line-height:1.7;">GIS works by stacking thematic layers on top of each other — a street network, a building footprint layer, a population density raster, an administrative boundary layer — and analysing how they relate spatially.</p>
+          </div>
+
+          <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:1.6rem;">
+            <div style="font-size:2rem;margin-bottom:0.7rem;">📡</div>
+            <h4 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Remote Sensing</h4>
+            <p style="color:var(--muted);font-size:0.9rem;line-height:1.7;">Remote sensing uses satellites, aircraft, or drones to collect imagery of the Earth's surface. These images can be analysed inside GIS to monitor land cover change, vegetation health, flooding, or urban growth — without setting foot in the field.</p>
+          </div>
+
+          <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:1.6rem;">
+            <div style="font-size:2rem;margin-bottom:0.7rem;">🔭</div>
+            <h4 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">Spatial Analysis</h4>
+            <p style="color:var(--muted);font-size:0.9rem;line-height:1.7;">GIS lets you ask spatial questions: Which schools are within 5 minutes' cycling distance? Which neighbourhoods flood first? How has forest cover changed over 10 years? The answers emerge from processing and combining layers with spatial operations.</p>
+          </div>
+
+          <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:1.6rem;">
+            <div style="font-size:2rem;margin-bottom:0.7rem;">🌱</div>
+            <h4 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;">GIS & Sustainability</h4>
+            <p style="color:var(--muted);font-size:0.9rem;line-height:1.7;">Many of the UN's Sustainable Development Goals (SDGs) rely on geospatial data for monitoring. GIS helps track deforestation (SDG 15), urban flood vulnerability (SDG 11), food insecurity (SDG 2), and access to education (SDG 4) — at scales from a single city to the whole planet.</p>
+          </div>
+
+        </div>
+
+        <!-- Tools used in this portfolio -->
+        <div style="background:var(--primary);color:#fff;border-radius:var(--radius);padding:2rem 2.5rem;">
+          <h4 style="font-size:1rem;font-weight:600;letter-spacing:0.03em;margin-bottom:1.2rem;opacity:0.8;text-transform:uppercase;font-size:0.8rem;">Tools used in this portfolio</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:0.7rem;">
+            <span style="background:rgba(255,255,255,0.12);border-radius:999px;padding:0.4rem 1rem;font-size:0.88rem;">QGIS</span>
+            <span style="background:rgba(255,255,255,0.12);border-radius:999px;padding:0.4rem 1rem;font-size:0.88rem;">ArcGIS Pro</span>
+            <span style="background:rgba(255,255,255,0.12);border-radius:999px;padding:0.4rem 1rem;font-size:0.88rem;">Google Earth Engine</span>
+            <span style="background:rgba(255,255,255,0.12);border-radius:999px;padding:0.4rem 1rem;font-size:0.88rem;">Leaflet.js</span>
+            <span style="background:rgba(255,255,255,0.12);border-radius:999px;padding:0.4rem 1rem;font-size:0.88rem;">OpenRouteService</span>
+            <span style="background:rgba(255,255,255,0.12);border-radius:999px;padding:0.4rem 1rem;font-size:0.88rem;">Sentinel-2 (ESA)</span>
+            <span style="background:rgba(255,255,255,0.12);border-radius:999px;padding:0.4rem 1rem;font-size:0.88rem;">AHN LiDAR</span>
+            <span style="background:rgba(255,255,255,0.12);border-radius:999px;padding:0.4rem 1rem;font-size:0.88rem;">OpenStreetMap</span>
+          </div>
         </div>
 
       </div>
@@ -798,20 +870,12 @@
           <div class="sdg-label">🎯 SDG Goal 2 — Zero Hunger · Indicator 2.1.1</div>
           <p>
             An interactive global choropleth map showing the percentage of the population
-            affected by undernourishment per country in 2020, based on UN SDG DataHub data.Choropleth maps 
-            are thematic maps that use varying shades of colour to represent the value of a variable across 
-            geographic regions. They are effective at portraying spatial inequality, however the choice of which scale
-            and which statistical units to use may obscure local variation. As seen here, the map immediately conveys
-            broad trends in undernourishment, highlighting sub-saharan Africa as the most afflicted region. Outliers include
-            Haiti, Somalia and Madagascar, countries who have experienced long-term humanitarian crises, complicating 
-            food accessibility.
-
+            affected by undernourishment per country in 2020, based on UN SDG DataHub data.
           </p>
           <p>
             Countries are colour-coded from light green (low undernourishment) to dark green
-            (high undernourishment). Hover over any country to see its value; click to zoom in. 
+            (high undernourishment). Hover over any country to see its value; click to zoom in.
           </p>
-          
           <div class="proj-meta">
             <div><label>Data source</label><strong>UN SDG DataHub</strong></div>
             <div><label>Tools used</label><strong>QGIS, Leaflet.js, GeoJSON</strong></div>
@@ -833,7 +897,7 @@
         <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:0.5rem 0;">Kindergarten Accessibility in Utrecht — Isochrone Analysis</h3>
         <div class="sdg-label" style="color:var(--accent);font-size:0.9rem;font-weight:600;margin-bottom:1.2rem;">🎯 SDG Goal 4 — Quality Education · Indicator 4.a.1</div>
         <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:0.8rem;">
-          This project investigates the spatial accessibility of kindergartens in Utrecht using isochrone mapping. An isochrone is a boundary line connecting all points reachable from a given location within a fixed travel time. In this case, a 5-minute cycling distance from each kindergarten is indicated. The areas enclosed by these rings represent zones of good accessibility; areas outside them indicate where children live further than 5 minutes by bike from the nearest kindergarten.
+          This project investigates the spatial accessibility of kindergartens in Utrecht using isochrone mapping. An isochrone is a boundary line connecting all points reachable from a given location within a fixed travel time — in this case, a 5-minute cycling distance from each kindergarten. The areas enclosed by these rings represent zones of good accessibility; areas outside them indicate where children live further than 5 minutes by bike from the nearest kindergarten.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:1rem;">
           <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
@@ -863,13 +927,13 @@
         <div style="padding:2rem;">
           <h4 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;">Map Interpretation</h4>
           <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">
-            The coloured rings on the map show the area reachable within 5 minutes by bike from each kindergarten in Utrecht, Netherlands. The city centre is well covered, most residential areas near the inner ring fall within at least one isochrone. This reflects the dense, cycling-friendly urban fabric of Utrecht.
+            The coloured rings on the map show the area reachable within 5 minutes by bike from each kindergarten in Utrecht. The city centre is well covered — most residential areas near the inner ring fall within at least one isochrone. This reflects the dense, cycling-friendly urban fabric of Utrecht.
           </p>
           <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">
-            The peripheral areas, particularly in the newer districts on the outskirts, show gaps in coverage, where no kindergarten is reachable within the 5-minute threshold. These gaps represent potential equity concerns for SDG 4: children in these areas face a higher barrier to accessing early education.
+            The peripheral areas — particularly in the newer districts on the outskirts — show gaps in coverage, where no kindergarten is reachable within the 5-minute threshold. These gaps represent potential equity concerns for SDG 4: children in these areas face a higher barrier to accessing early education.
           </p>
           <p style="color:var(--muted);font-size:0.88rem;">
-            A count-within analysis found <strong>13,302 buildings</strong> within at least one isochrone zone, indicating the scale of the population within easy cycling distance of a kindergarten.
+            A count-within analysis found <strong>13,302 buildings</strong> within at least one isochrone zone — indicating the scale of the population within easy cycling distance of a kindergarten.
           </p>
           <button onclick="openModal('img','kindergarden_map_final.png')" style="margin-top:1.2rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full Map ↗</button>
         </div>
@@ -934,25 +998,20 @@
           <h3>Urban Flood Risk Analysis — The Hague</h3>
           <div class="sdg-label">🎯 SDG Goal 11 — Sustainable Cities and Communities · Target 11.5</div>
           <p>
-            This project analyses  flood risk in The Hague, Netherlands using high-resolution
-            LiDAR elevation data from the AHN (Actueel Hoogtebestand Nederland). LiDaR uses lasers to map out elevation differences in the landscape. A
-             model (DTM) was used to identify low-lying areas most vulnerable to
+            This project analyses urban flood risk in The Hague using high-resolution
+            LiDAR elevation data from the AHN (Actueel Hoogtebestand Nederland). A Digital
+            Terrain Model (DTM) was used to identify low-lying areas most vulnerable to
             inundation under a 1-metre flood scenario.
           </p>
           <p>
             Buildings were extruded by height using Zonal Statistics, revealing the 3D
-            urban landscape in relation to flood exposure. The analysis highlights coastal
+            urban fabric in relation to flood exposure. The analysis highlights coastal
             and city-centre neighbourhoods where ground elevation falls below or near
-            sea level. This is a critical issue for a low-lying Dutch city.
-
+            sea level — a critical issue for a low-lying Dutch city.
           </p>
           <p>
-            The map reveals a unique dynamic to the South Holland North Sea Coastline. Due to sand dune
-            formations on the coast (see map: yellow high elevation band along the coast) protect the western city core of The Hague.
-            This is a naturally occuring phenomenon, formed by the wind, sand, and tide dynamics of the North Sea. Due to the high elevation along the coast,
-            most flooding occurs in the interior, in the low-lying polder regions, which have been reclaimed from the original wetlands that existed there. Now, they are used for agriculture.
-            In the case of a 1 meter flood, these areas come under water. This reflects the dyke ring dynamics in the netherlands. The low-lying provinces are enclosed by protective dykes and locks. However, when these give out,
-            there is little preventing the spread of floodwater within the ring, allowing it to cover vast stretches of flat land and urban regions.
+            This work connects directly to SDG 11.5, which aims to reduce the impact of
+            disasters including flooding on urban communities by 2030.
           </p>
           <div class="proj-meta">
             <div><label>Data source</label><strong>AHN (Actueel Hoogtebestand Nederland)</strong></div>
@@ -976,9 +1035,7 @@
         <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:0.5rem 0;">Vegetation Change Monitoring — Singapore & Johor Bahru</h3>
         <div class="sdg-label" style="color:var(--accent);font-size:0.9rem;font-weight:600;margin-bottom:1.2rem;">🎯 SDG Goal 15 — Life on Land · Monitoring Terrestrial Ecosystem Change</div>
         <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:0.8rem;">
-          This project uses data sourced from satellite imagery from the ESA Sentinel-2 sattelite to monitor vegetation change between 2017 and 2024 across Singapore and the southern Malaysian state of Johor Bahru. This region is particularly interesting, as it portrays a highly developed city state (Singapore), with a rapidly developing
-          city, in a less developed region. Malaysia, and the Southern province of Johor is more reliant on the exploitation of its natural resources such as its lush rainforests. On the other hand, Singapore is a thriving service economy which can afford to put resources toward conservation of the ecosystems that are left on the island. Johor shows significant change in vegetation levels,
-          as it is an expanding hub of palm oil plantations, an industry which engages in extensive deforestation. On the maps, this is shown through NDVI, the most widely used vegetation index. Through sattelite imagery, an index of the health of the vegetation is derived, and mapped out. 
+          This project uses multispectral satellite imagery from Sentinel-2 to monitor vegetation change between 2017 and 2024 across Singapore and the southern Malaysian state of Johor Bahru — an area that juxtaposes a densely urbanised city-state with a rapidly developing region where natural forests are giving way to oil palm plantations and urban expansion.
         </p>
         <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:1.5rem;">
           NDVI (Normalized Difference Vegetation Index) composites were generated in Google Earth Engine using full-year median Sentinel-2 imagery to eliminate cloud cover. NDVI was then calculated in QGIS using the formula <strong>(NIR − Red) / (NIR + Red)</strong>, where high values indicate dense healthy vegetation and negative values indicate water or bare surfaces.
@@ -1013,7 +1070,7 @@
           <div style="padding:1.4rem;">
             <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 1</div>
             <h4 style="font-size:1rem;font-weight:700;margin-bottom:0.6rem;">True Colour Composite — 2017</h4>
-            <p style="color:var(--muted);font-size:0.88rem;">Singapore's compact urban footprint is visible surrounded by water, with vegetated areas in the central nature reserve. Across the Johor Strait, Johor Bahru's urban core and an interior landscape of oil palms, secondary forest, and agricultural land. Construction sites appear as pale grey-beige patches.</p>
+            <p style="color:var(--muted);font-size:0.88rem;">Singapore's compact urban footprint is visible surrounded by water, with vegetated areas in the central nature reserve. Across the Johor Strait, Johor Bahru's urban core gives way to a mosaic of oil palm, secondary forest, and agricultural land. Construction sites appear as pale grey-beige patches.</p>
             <button onclick="openModal('img','singapore_2017.png')" style="margin-top:1rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
           </div>
         </div>
@@ -1025,7 +1082,7 @@
           <div style="padding:1.4rem;">
             <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 2</div>
             <h4 style="font-size:1rem;font-weight:700;margin-bottom:0.6rem;">True Colour Composite — 2024</h4>
-            <p style="color:var(--muted);font-size:0.88rem;">By 2024, notable expansion is visible in Johor. New infrastructure and housing have replaced vegetation visible in 2017. Land reclamation on Singapore's southern coast is visible. The contrast between urban Singapore and transitional Johor is more pronounced.</p>
+            <p style="color:var(--muted);font-size:0.88rem;">By 2024, notable expansion is visible in Johor, particularly around the Iskandar Malaysia economic corridor. New infrastructure and housing have replaced vegetation visible in 2017. Land reclamation on Singapore's southern coast is visible. The contrast between urban Singapore and transitional Johor is more pronounced.</p>
             <button onclick="openModal('img','ndvi_2024_coloured.png')" style="margin-top:1rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
           </div>
         </div>
@@ -1069,9 +1126,10 @@
         <div style="padding:2rem;">
           <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 5</div>
           <h4 style="font-size:1.1rem;font-weight:700;margin-bottom:0.6rem;">NDVI Change — 2017 → 2024</h4>
-          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">The change map (2024 NDVI minus 2017 NDVI) illustrates where vegetation increased (green) and decreased (red/orange) over seven years. Red patches around Johor Bahru's urban edge indicate active deforestation and land conversion.</p>
-          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">Green areas in Johor's interior largely reflect oil palm plantation regrowth, not natural forest recovery. Singapore's protected nature areas remain stable, while development frontiers show slight negative change.</p>
-                <button onclick="openModal('img','ndvi_change.png')" style="margin-top:1.2rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
+          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">The change map (2024 NDVI minus 2017 NDVI) reveals where vegetation increased (green) and decreased (red/orange) over seven years. Red patches around Johor Bahru's urban fringe indicate active deforestation and land conversion.</p>
+          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">Green areas in Johor's interior largely reflect oil palm plantation regrowth — not natural forest recovery. Singapore's protected nature areas remain stable, while development frontiers show slight negative change.</p>
+          <p style="color:var(--muted);font-size:0.88rem;">This map illustrates the complex relationship between vegetation density and land use: not all green gain is ecologically positive, and not all red loss is permanent.</p>
+          <button onclick="openModal('img','ndvi_change.png')" style="margin-top:1.2rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
         </div>
       </div>
 
@@ -1086,10 +1144,10 @@
         <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:0.5rem 0;">Land Use / Land Cover Classification — Utrecht</h3>
         <div class="sdg-label" style="color:var(--accent);font-size:0.9rem;font-weight:600;margin-bottom:1.2rem;">🎯 SDG Goal 15 — Life on Land · Monitoring Terrestrial Ecosystems</div>
         <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:0.8rem;">
-          Land cover classification maps what covers the Earth's surface, forests, water, urban areas and agricultural fields, using satellite imagery. This project applies three classification approaches to a Sentinel-2 composite of Utrecht, comparing unsupervised and supervised methods to assess their accuracy and suitability for land cover monitoring.
+          Land cover classification maps what covers the Earth's surface — forests, water, urban areas and agricultural fields — using satellite imagery. This project applies three classification approaches to a Sentinel-2 composite of Utrecht, comparing unsupervised and supervised methods to assess their accuracy and suitability for land cover monitoring.
         </p>
         <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:1.5rem;">
-          The imagery was processed in ArcGIS Pro using the Image Classification Wizard. Each pixel represents approximately 18 × 18 metres. A Support Vector Machine (SVM) supervised classifier, trained on manually drawn samples for five land cover classes, achieved a cross-validation accuracy of <strong>99.53%</strong>, significantly outperforming both unsupervised methods.
+          The imagery was processed in ArcGIS Pro using the Image Classification Wizard. Each pixel represents approximately 18 × 18 metres. A Support Vector Machine (SVM) supervised classifier — trained on manually drawn samples for five land cover classes — achieved a cross-validation accuracy of <strong>99.53%</strong>, significantly outperforming both unsupervised methods.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:1rem;">
           <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
@@ -1203,6 +1261,8 @@
         </div>
       </div>
 
+    </div>
+
 
   </div>
 </section>
@@ -1276,7 +1336,7 @@
     document.querySelectorAll('.proj-tab').forEach(t => t.classList.remove('active'));
     document.getElementById('tab-' + id).classList.add('active');
     const tabs = document.querySelectorAll('.proj-tab');
-    const map = { overview: 0, p1: 1, p2: 2, p3: 3, p4: 4, p5: 5, p6: 6 };
+    const map = { overview: 0, gis: 1, p1: 2, p2: 3, p3: 4, p4: 5, p5: 6 };
     tabs[map[id]].classList.add('active');
     document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
   }
