@@ -821,34 +821,100 @@
 
     <!-- PROJECT 2 -->
     <div id="tab-p2" class="proj-panel">
-      <div class="proj-layout">
-        <div class="proj-visual">
-          <img src="kindergarden_map_final.png" alt="5-minute cycling distance from schools in Utrecht"
-               style="cursor:zoom-in;" onclick="openModal('img','kindergarden_map_final.png')">
-        </div>
-        <div class="proj-info">
-          <div class="proj-tag">Vector Analysis</div>
-          <h3>School Accessibility in Utrecht</h3>
-          <div class="sdg-label">🎯 SDG Goal 4 — Quality Education · Indicator 4.a.1</div>
-          <p>
-            Isochrone map showing areas within a 5-minute cycling distance of kindergartens
-            in Utrecht (2026), using OpenStreetMap data and the OpenRouteService routing engine.
-          </p>
-          <p>
-            Areas outside the isochrone zones represent potential gaps in access to early
-            education — a key concern for SDG 4 (Quality Education). The count within analysis
-            revealed over 13,000 buildings within 5 minutes of a school in the city centre.
-          </p>
-          <div class="proj-meta">
-            <div><label>Data source</label><strong>OpenStreetMap, OpenRouteService</strong></div>
-            <div><label>Tools used</label><strong>QGIS, QuickOSM, ORS Tools</strong></div>
-            <div><label>Transport mode</label><strong>Cycling</strong></div>
+
+      <!-- Header -->
+      <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);padding:2.5rem;margin-bottom:2rem;">
+        <div class="proj-tag">Vector Analysis</div>
+        <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:0.5rem 0;">Kindergarten Accessibility in Utrecht — Isochrone Analysis</h3>
+        <div class="sdg-label" style="color:var(--accent);font-size:0.9rem;font-weight:600;margin-bottom:1.2rem;">🎯 SDG Goal 4 — Quality Education · Indicator 4.a.1</div>
+        <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:0.8rem;">
+          This project investigates the spatial accessibility of kindergartens in Utrecht using isochrone mapping. An isochrone is a boundary line connecting all points reachable from a given location within a fixed travel time — in this case, a 5-minute cycling distance from each kindergarten. The areas enclosed by these rings represent zones of good accessibility; areas outside them indicate where children live further than 5 minutes by bike from the nearest kindergarten.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;">
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
+            <div style="color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Data source</div>
+            <strong>OpenStreetMap · OpenRouteService API</strong>
           </div>
-          <div class="proj-actions">
-            <button class="btn btn-map" onclick="openModal('img','kindergarden_map_final.png')">View Full Map ↗</button>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
+            <div style="color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Tools used</div>
+            <strong>QGIS · QuickOSM · ORS Tools</strong>
+          </div>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
+            <div style="color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Transport mode</div>
+            <strong>Cycling · 5-minute threshold</strong>
+          </div>
+          <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
+            <div style="color:var(--muted);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.3rem;">Buildings within reach</div>
+            <strong>13,302 within 5-min cycling</strong>
           </div>
         </div>
       </div>
+
+      <!-- Map + interpretation -->
+      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;margin-bottom:2rem;background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden;">
+        <img src="kindergarden_map_final.png" alt="5-minute cycling isochrones from kindergartens in Utrecht"
+             style="width:100%;height:100%;min-height:380px;object-fit:cover;cursor:zoom-in;display:block;"
+             onclick="openModal('img','kindergarden_map_final.png')">
+        <div style="padding:2rem;">
+          <h4 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;">Map Interpretation</h4>
+          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">
+            The coloured rings on the map show the area reachable within 5 minutes by bike from each kindergarten in Utrecht. The city centre is well covered — most residential areas near the inner ring fall within at least one isochrone. This reflects the dense, cycling-friendly urban fabric of Utrecht.
+          </p>
+          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">
+            The peripheral areas — particularly in the newer districts on the outskirts — show gaps in coverage, where no kindergarten is reachable within the 5-minute threshold. These gaps represent potential equity concerns for SDG 4: children in these areas face a higher barrier to accessing early education.
+          </p>
+          <p style="color:var(--muted);font-size:0.88rem;">
+            A count-within analysis found <strong>13,302 buildings</strong> within at least one isochrone zone — indicating the scale of the population within easy cycling distance of a kindergarten.
+          </p>
+          <button onclick="openModal('img','kindergarden_map_final.png')" style="margin-top:1.2rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full Map ↗</button>
+        </div>
+      </div>
+
+      <!-- Methods steps -->
+      <div style="background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);padding:2.5rem;">
+        <h4 style="font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:1.5rem;">Methods & Workflow</h4>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+
+          <div style="background:var(--bg);border-radius:12px;padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem;">Step 1</div>
+            <h5 style="font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;">Download kindergarten data — QuickOSM</h5>
+            <p style="color:var(--muted);font-size:0.86rem;">QuickOSM is a QGIS plugin that queries the OpenStreetMap database directly. Using the tag <code style="background:#e2e8f0;padding:0.1rem 0.3rem;border-radius:4px;">amenity = kindergarten</code>, all kindergarten locations within Utrecht were downloaded as a point layer. OpenStreetMap is a community-maintained open geographic database, making it ideal for urban facility mapping.</p>
+          </div>
+
+          <div style="background:var(--bg);border-radius:12px;padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem;">Step 2</div>
+            <h5 style="font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;">Set coordinate reference system — EPSG:28992</h5>
+            <p style="color:var(--muted);font-size:0.86rem;">The project was reprojected to the Dutch national coordinate system (Amersfoort / RD New, EPSG:28992). This is essential for accurate distance measurements in the Netherlands — working in a geographic CRS (degrees) would produce incorrect travel time calculations.</p>
+          </div>
+
+          <div style="background:var(--bg);border-radius:12px;padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem;">Step 3</div>
+            <h5 style="font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;">Generate isochrones — ORS Tools</h5>
+            <p style="color:var(--muted);font-size:0.86rem;">ORS Tools connects QGIS to the OpenRouteService routing API. Using the kindergarten points as origins and cycling as the transport mode, isochrone polygons were generated for the 5-minute threshold. The routing engine calculates which areas of the real road and cycle path network are reachable within that time — unlike a simple buffer, isochrones follow actual routes.</p>
+          </div>
+
+          <div style="background:var(--bg);border-radius:12px;padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem;">Step 4</div>
+            <h5 style="font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;">Count within analysis</h5>
+            <p style="color:var(--muted);font-size:0.86rem;">To quantify accessibility, a spatial join was used to count how many buildings from the OpenStreetMap building layer fall within the isochrone zones. This "count within" analysis revealed 13,302 buildings within a 5-minute cycling distance of at least one kindergarten — providing a concrete measure of accessibility coverage in the city.</p>
+          </div>
+
+          <div style="background:var(--bg);border-radius:12px;padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem;">Step 5</div>
+            <h5 style="font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;">Cartographic design & print layout</h5>
+            <p style="color:var(--muted);font-size:0.86rem;">The final map was composed in QGIS Print Layout, adding a title, legend, scale bar, north arrow, and data source credits. A basemap from QuickMapServices was used as background context. The isochrone polygons were styled with transparency to allow the basemap to show through while keeping the coverage zones clearly visible.</p>
+          </div>
+
+          <div style="background:var(--bg);border-radius:12px;padding:1.4rem;">
+            <div style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.5rem;">SDG Link</div>
+            <h5 style="font-size:0.95rem;font-weight:700;margin-bottom:0.5rem;">SDG 4 — Quality Education</h5>
+            <p style="color:var(--muted);font-size:0.86rem;">SDG indicator 4.a.1 monitors access to inclusive and equitable quality education. Spatial accessibility analysis like this isochrone map provides evidence for where educational facilities are lacking — supporting planners and policymakers in making data-driven decisions about where to locate new kindergartens to close coverage gaps.</p>
+          </div>
+
+        </div>
+      </div>
+
     </div>
 
     <!-- PROJECT 3 -->
