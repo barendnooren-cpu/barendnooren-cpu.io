@@ -798,12 +798,20 @@
           <div class="sdg-label">🎯 SDG Goal 2 — Zero Hunger · Indicator 2.1.1</div>
           <p>
             An interactive global choropleth map showing the percentage of the population
-            affected by undernourishment per country in 2020, based on UN SDG DataHub data.
+            affected by undernourishment per country in 2020, based on UN SDG DataHub data.Choropleth maps 
+            are thematic maps that use varying shades of colour to represent the value of a variable across 
+            geographic regions. They are effective at portraying spatial inequality, however the choice of which scale
+            and which statistical units to use may obscure local variation. As seen here, the map immediately conveys
+            broad trends in undernourishment, highlighting sub-saharan Africa as the most afflicted region. Outliers include
+            Haiti, Somalia and Madagascar, countries who have experienced long-term humanitarian crises, complicating 
+            food accessibility.
+
           </p>
           <p>
             Countries are colour-coded from light green (low undernourishment) to dark green
-            (high undernourishment). Hover over any country to see its value; click to zoom in.
+            (high undernourishment). Hover over any country to see its value; click to zoom in. 
           </p>
+          
           <div class="proj-meta">
             <div><label>Data source</label><strong>UN SDG DataHub</strong></div>
             <div><label>Tools used</label><strong>QGIS, Leaflet.js, GeoJSON</strong></div>
@@ -825,7 +833,7 @@
         <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:0.5rem 0;">Kindergarten Accessibility in Utrecht — Isochrone Analysis</h3>
         <div class="sdg-label" style="color:var(--accent);font-size:0.9rem;font-weight:600;margin-bottom:1.2rem;">🎯 SDG Goal 4 — Quality Education · Indicator 4.a.1</div>
         <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:0.8rem;">
-          This project investigates the spatial accessibility of kindergartens in Utrecht using isochrone mapping. An isochrone is a boundary line connecting all points reachable from a given location within a fixed travel time — in this case, a 5-minute cycling distance from each kindergarten. The areas enclosed by these rings represent zones of good accessibility; areas outside them indicate where children live further than 5 minutes by bike from the nearest kindergarten.
+          This project investigates the spatial accessibility of kindergartens in Utrecht using isochrone mapping. An isochrone is a boundary line connecting all points reachable from a given location within a fixed travel time. In this case, a 5-minute cycling distance from each kindergarten is indicated. The areas enclosed by these rings represent zones of good accessibility; areas outside them indicate where children live further than 5 minutes by bike from the nearest kindergarten.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:1rem;">
           <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
@@ -855,13 +863,13 @@
         <div style="padding:2rem;">
           <h4 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;">Map Interpretation</h4>
           <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">
-            The coloured rings on the map show the area reachable within 5 minutes by bike from each kindergarten in Utrecht. The city centre is well covered — most residential areas near the inner ring fall within at least one isochrone. This reflects the dense, cycling-friendly urban fabric of Utrecht.
+            The coloured rings on the map show the area reachable within 5 minutes by bike from each kindergarten in Utrecht, Netherlands. The city centre is well covered, most residential areas near the inner ring fall within at least one isochrone. This reflects the dense, cycling-friendly urban fabric of Utrecht.
           </p>
           <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">
-            The peripheral areas — particularly in the newer districts on the outskirts — show gaps in coverage, where no kindergarten is reachable within the 5-minute threshold. These gaps represent potential equity concerns for SDG 4: children in these areas face a higher barrier to accessing early education.
+            The peripheral areas, particularly in the newer districts on the outskirts, show gaps in coverage, where no kindergarten is reachable within the 5-minute threshold. These gaps represent potential equity concerns for SDG 4: children in these areas face a higher barrier to accessing early education.
           </p>
           <p style="color:var(--muted);font-size:0.88rem;">
-            A count-within analysis found <strong>13,302 buildings</strong> within at least one isochrone zone — indicating the scale of the population within easy cycling distance of a kindergarten.
+            A count-within analysis found <strong>13,302 buildings</strong> within at least one isochrone zone, indicating the scale of the population within easy cycling distance of a kindergarten.
           </p>
           <button onclick="openModal('img','kindergarden_map_final.png')" style="margin-top:1.2rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full Map ↗</button>
         </div>
@@ -926,20 +934,25 @@
           <h3>Urban Flood Risk Analysis — The Hague</h3>
           <div class="sdg-label">🎯 SDG Goal 11 — Sustainable Cities and Communities · Target 11.5</div>
           <p>
-            This project analyses urban flood risk in The Hague using high-resolution
-            LiDAR elevation data from the AHN (Actueel Hoogtebestand Nederland). A Digital
-            Terrain Model (DTM) was used to identify low-lying areas most vulnerable to
+            This project analyses  flood risk in The Hague, Netherlands using high-resolution
+            LiDAR elevation data from the AHN (Actueel Hoogtebestand Nederland). LiDaR uses lasers to map out elevation differences in the landscape. A
+             model (DTM) was used to identify low-lying areas most vulnerable to
             inundation under a 1-metre flood scenario.
           </p>
           <p>
             Buildings were extruded by height using Zonal Statistics, revealing the 3D
-            urban fabric in relation to flood exposure. The analysis highlights coastal
+            urban landscape in relation to flood exposure. The analysis highlights coastal
             and city-centre neighbourhoods where ground elevation falls below or near
-            sea level — a critical issue for a low-lying Dutch city.
+            sea level. This is a critical issue for a low-lying Dutch city.
+
           </p>
           <p>
-            This work connects directly to SDG 11.5, which aims to reduce the impact of
-            disasters including flooding on urban communities by 2030.
+            The map reveals a unique dynamic to the South Holland North Sea Coastline. Due to sand dune
+            formations on the coast (see map: yellow high elevation band along the coast) protect the western city core of The Hague.
+            This is a naturally occuring phenomenon, formed by the wind, sand, and tide dynamics of the North Sea. Due to the high elevation along the coast,
+            most flooding occurs in the interior, in the low-lying polder regions, which have been reclaimed from the original wetlands that existed there. Now, they are used for agriculture.
+            In the case of a 1 meter flood, these areas come under water. This reflects the dyke ring dynamics in the netherlands. The low-lying provinces are enclosed by protective dykes and locks. However, when these give out,
+            there is little preventing the spread of floodwater within the ring, allowing it to cover vast stretches of flat land and urban regions.
           </p>
           <div class="proj-meta">
             <div><label>Data source</label><strong>AHN (Actueel Hoogtebestand Nederland)</strong></div>
@@ -963,7 +976,9 @@
         <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:0.5rem 0;">Vegetation Change Monitoring — Singapore & Johor Bahru</h3>
         <div class="sdg-label" style="color:var(--accent);font-size:0.9rem;font-weight:600;margin-bottom:1.2rem;">🎯 SDG Goal 15 — Life on Land · Monitoring Terrestrial Ecosystem Change</div>
         <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:0.8rem;">
-          This project uses multispectral satellite imagery from Sentinel-2 to monitor vegetation change between 2017 and 2024 across Singapore and the southern Malaysian state of Johor Bahru — an area that juxtaposes a densely urbanised city-state with a rapidly developing region where natural forests are giving way to oil palm plantations and urban expansion.
+          This project uses data sourced from satellite imagery from the ESA Sentinel-2 sattelite to monitor vegetation change between 2017 and 2024 across Singapore and the southern Malaysian state of Johor Bahru. This region is particularly interesting, as it portrays a highly developed city state (Singapore), with a rapidly developing
+          city, in a less developed region. Malaysia, and the Southern province of Johor is more reliant on the exploitation of its natural resources such as its lush rainforests. On the other hand, Singapore is a thriving service economy which can afford to put resources toward conservation of the ecosystems that are left on the island. Johor shows significant change in vegetation levels,
+          as it is an expanding hub of palm oil plantations, an industry which engages in extensive deforestation. On the maps, this is shown through NDVI, the most widely used vegetation index. Through sattelite imagery, an index of the health of the vegetation is derived, and mapped out. 
         </p>
         <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:1.5rem;">
           NDVI (Normalized Difference Vegetation Index) composites were generated in Google Earth Engine using full-year median Sentinel-2 imagery to eliminate cloud cover. NDVI was then calculated in QGIS using the formula <strong>(NIR − Red) / (NIR + Red)</strong>, where high values indicate dense healthy vegetation and negative values indicate water or bare surfaces.
@@ -998,7 +1013,7 @@
           <div style="padding:1.4rem;">
             <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 1</div>
             <h4 style="font-size:1rem;font-weight:700;margin-bottom:0.6rem;">True Colour Composite — 2017</h4>
-            <p style="color:var(--muted);font-size:0.88rem;">Singapore's compact urban footprint is visible surrounded by water, with vegetated areas in the central nature reserve. Across the Johor Strait, Johor Bahru's urban core gives way to a mosaic of oil palm, secondary forest, and agricultural land. Construction sites appear as pale grey-beige patches.</p>
+            <p style="color:var(--muted);font-size:0.88rem;">Singapore's compact urban footprint is visible surrounded by water, with vegetated areas in the central nature reserve. Across the Johor Strait, Johor Bahru's urban core and an interior landscape of oil palms, secondary forest, and agricultural land. Construction sites appear as pale grey-beige patches.</p>
             <button onclick="openModal('img','singapore_2017.png')" style="margin-top:1rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
           </div>
         </div>
@@ -1010,7 +1025,7 @@
           <div style="padding:1.4rem;">
             <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 2</div>
             <h4 style="font-size:1rem;font-weight:700;margin-bottom:0.6rem;">True Colour Composite — 2024</h4>
-            <p style="color:var(--muted);font-size:0.88rem;">By 2024, notable expansion is visible in Johor, particularly around the Iskandar Malaysia economic corridor. New infrastructure and housing have replaced vegetation visible in 2017. Land reclamation on Singapore's southern coast is visible. The contrast between urban Singapore and transitional Johor is more pronounced.</p>
+            <p style="color:var(--muted);font-size:0.88rem;">By 2024, notable expansion is visible in Johor. New infrastructure and housing have replaced vegetation visible in 2017. Land reclamation on Singapore's southern coast is visible. The contrast between urban Singapore and transitional Johor is more pronounced.</p>
             <button onclick="openModal('img','ndvi_2024_coloured.png')" style="margin-top:1rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
           </div>
         </div>
@@ -1054,10 +1069,9 @@
         <div style="padding:2rem;">
           <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin-bottom:0.4rem;">Map 5</div>
           <h4 style="font-size:1.1rem;font-weight:700;margin-bottom:0.6rem;">NDVI Change — 2017 → 2024</h4>
-          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">The change map (2024 NDVI minus 2017 NDVI) reveals where vegetation increased (green) and decreased (red/orange) over seven years. Red patches around Johor Bahru's urban fringe indicate active deforestation and land conversion.</p>
-          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">Green areas in Johor's interior largely reflect oil palm plantation regrowth — not natural forest recovery. Singapore's protected nature areas remain stable, while development frontiers show slight negative change.</p>
-          <p style="color:var(--muted);font-size:0.88rem;">This map illustrates the complex relationship between vegetation density and land use: not all green gain is ecologically positive, and not all red loss is permanent.</p>
-          <button onclick="openModal('img','ndvi_change.png')" style="margin-top:1.2rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
+          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">The change map (2024 NDVI minus 2017 NDVI) illustrates where vegetation increased (green) and decreased (red/orange) over seven years. Red patches around Johor Bahru's urban edge indicate active deforestation and land conversion.</p>
+          <p style="color:var(--muted);font-size:0.88rem;margin-bottom:0.8rem;">Green areas in Johor's interior largely reflect oil palm plantation regrowth, not natural forest recovery. Singapore's protected nature areas remain stable, while development frontiers show slight negative change.</p>
+                <button onclick="openModal('img','ndvi_change.png')" style="margin-top:1.2rem;background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:999px;font-size:0.85rem;font-weight:600;cursor:pointer;">View Full ↗</button>
         </div>
       </div>
 
@@ -1072,10 +1086,10 @@
         <h3 style="font-family:'DM Serif Display',serif;font-size:1.6rem;margin:0.5rem 0;">Land Use / Land Cover Classification — Utrecht</h3>
         <div class="sdg-label" style="color:var(--accent);font-size:0.9rem;font-weight:600;margin-bottom:1.2rem;">🎯 SDG Goal 15 — Life on Land · Monitoring Terrestrial Ecosystems</div>
         <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:0.8rem;">
-          Land cover classification maps what covers the Earth's surface — forests, water, urban areas and agricultural fields — using satellite imagery. This project applies three classification approaches to a Sentinel-2 composite of Utrecht, comparing unsupervised and supervised methods to assess their accuracy and suitability for land cover monitoring.
+          Land cover classification maps what covers the Earth's surface, forests, water, urban areas and agricultural fields, using satellite imagery. This project applies three classification approaches to a Sentinel-2 composite of Utrecht, comparing unsupervised and supervised methods to assess their accuracy and suitability for land cover monitoring.
         </p>
         <p style="color:var(--muted);font-size:0.96rem;max-width:900px;margin-bottom:1.5rem;">
-          The imagery was processed in ArcGIS Pro using the Image Classification Wizard. Each pixel represents approximately 18 × 18 metres. A Support Vector Machine (SVM) supervised classifier — trained on manually drawn samples for five land cover classes — achieved a cross-validation accuracy of <strong>99.53%</strong>, significantly outperforming both unsupervised methods.
+          The imagery was processed in ArcGIS Pro using the Image Classification Wizard. Each pixel represents approximately 18 × 18 metres. A Support Vector Machine (SVM) supervised classifier, trained on manually drawn samples for five land cover classes, achieved a cross-validation accuracy of <strong>99.53%</strong>, significantly outperforming both unsupervised methods.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:1rem;">
           <div style="background:var(--bg);border-radius:10px;padding:1rem 1.4rem;font-size:0.88rem;">
@@ -1189,15 +1203,6 @@
         </div>
       </div>
 
-    </div>
-
-    <!-- PROJECT 6 -->
-    <div id="tab-p6" class="proj-panel">
-      <div class="proj-layout">
-        <div class="proj-visual"><div class="proj-visual-placeholder"><p style="color:var(--muted);">Add your map image here</p></div></div>
-        <div class="proj-info"><div class="proj-tag">Coming Soon</div><h3>Project 6 Title</h3><p>Replace this with your project description.</p></div>
-      </div>
-    </div>
 
   </div>
 </section>
